@@ -12,7 +12,8 @@ void main(int argc,char *argv[])
 	exit(1);
  }
  pid = asci_to_int(argv[2]); // argv[2] will store pid , since 2nd argument is pid
- signo = asci_to_int(&argv[1][1]); // since argv[1][0] = '-' , argv[1][1] = 'signo'
+ signo = asci_to_int(&argv[1][1]); // since argv[1][0] = '-'(45 - asci) , argv[1][1] = 'signo'
+ printf("for testing\n argv[1][0] = %d \n argv[1][1] = %d \n",argv[1][0],argv[1][1]); a
  ret=kill(pid,signo);
  if(ret>=0)
 	printf("process with %d pid is killed\n",pid);
