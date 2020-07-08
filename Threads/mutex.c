@@ -2,7 +2,7 @@
 #include<pthread.h>
 #include<stdlib.h>
 #include<unistd.h>
-pthread_mutex_t lock=PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t lock=PTHREAD_MUTEX_INITIALIZER; // initally mutex will be in Unlock state
 int count=0;
 void *abc(void *arg)
 {
@@ -20,7 +20,7 @@ void main()
 pthread_t tid[5];
 for(int i=0;i<5;i++)
 {
-pthread_create(&tid[i],NULL,abc,&i); //passing address of val as an argument to new thread 
+pthread_create(&tid[i],NULL,abc,&i); //passing address of i as an argument to new thread, pthread_create will return 0 if call is sucess ,any other value if call fails
 }
 for(int i=0;i<5;i++)// waits untill all threads complets there exicution
 {
